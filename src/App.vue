@@ -1,20 +1,24 @@
 <template>
-  <div class="container border bg-light">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Thi is a direct messahge from the App.vue file."/>
+  <div class="container mt-3">
+    <BlockTitle title_text="Elérhetőségek"/>
     <BasicInfomration/>
+    <BlockTitle title_text="Bemutatkozás"/>
+    <IntroductionBlock/>
+    <BlockTitle title_text="Ismereteim"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import BasicInfomration from './components/BasicInfomration.vue'
+import BlockTitle from './components/BlockTitle.vue'
+import IntroductionBlock from './components/IntroductionBlock.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    BasicInfomration
+    BasicInfomration,
+    BlockTitle,
+    IntroductionBlock
   }
 }
 </script>
