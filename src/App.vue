@@ -1,4 +1,5 @@
 <template>
+<Navbar/>
   <div class="container mt-3">
     <BlockTitle title_text="Elérhetőségek"/>
     <BasicInfomration/>
@@ -12,13 +13,18 @@
 import BasicInfomration from './components/BasicInfomration.vue'
 import BlockTitle from './components/BlockTitle.vue'
 import IntroductionBlock from './components/IntroductionBlock.vue'
+import Navbar from './components/Navbar.vue'
 
 export default {
+  provide: {
+    language: 'english'
+  },
   name: 'App',
   components: {
     BasicInfomration,
     BlockTitle,
-    IntroductionBlock
+    IntroductionBlock,
+    Navbar
   }
 }
 </script>
