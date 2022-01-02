@@ -7,21 +7,29 @@
     </ul>
 -->
     <div class="row bg-white border py-3 shadow-sm">
-      <div class="col col-s" v-for="(value, key) in final_data.informations" :key="key">
-        <h6 class="text-info medium-text">{{ key }}</h6> <span class="small-text text-secondary">{{ value }}</span>
+      <div class="col" v-for="(value, key) in final_data.informations" :key="key">
+        <!-- <h6 class="text-info medium-text">{{ key }}</h6> <span class="small-text text-secondary">{{ value }}</span> -->
+          <BasicInformationBlock :type="key" :data="value" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import BasicInformationBlock from './BasicInformationBlock.vue'
+
 export default {
   name: 'Basic Information Component',
   inject: ['language'],
+  components: {
+    BasicInformationBlock
+  },
   data() {
     return {
       hungarian_lang: {
         informations: {
+          'Teljes név' : 'Kovács Norbert',
+          'Születési dátum' : '1995. február 24.',
           'Tanulmányok': 'Programtervező Informatika',
           'Telefon': '+36 70 517 09 49',
           'E-mail': 'mfw.kovacs.norbert@gmail.com',
@@ -31,9 +39,11 @@ export default {
       english_lang: {
         informations: {
           'Full name': 'Norbert Kovács',
+          'Birthday' : '1995. február 24.',
           'Studies': 'Programming',
           'Phone number': '+36 70 517 09 49',
           'E-mail': 'mfw.kovacs.norbert@gmail.com',
+          'Place': 'Eger'
         }
       },
       final_data: {

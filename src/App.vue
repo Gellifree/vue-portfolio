@@ -2,30 +2,33 @@
 <Navbar/>
   <div class="container mt-3">
     <BlockTitle title_text="Elérhetőségek"/>
-    <BasicInfomration/>
+    <BasicInformation/>
     <BlockTitle title_text="Rólam"/>
     <IntroductionBlock/>
     <BlockTitle title_text="Ismereteim"/>
+    <Stack/>
   </div>
 </template>
 
 <script>
-import BasicInfomration from './components/BasicInfomration.vue'
+import BasicInformation from './components/BasicInformation.vue'
 import BlockTitle from './components/BlockTitle.vue'
 import IntroductionBlock from './components/IntroductionBlock.vue'
 import Navbar from './components/Navbar.vue'
+import Stack from './components/Stack.vue'
 
 
 export default {
   provide: {
-    language: 'hungarian'
+    language: 'english'
   },
   name: 'App',
   components: {
-    BasicInfomration,
+    BasicInformation,
     BlockTitle,
     IntroductionBlock,
-    Navbar
+    Navbar,
+    Stack
   }
 }
 </script>
