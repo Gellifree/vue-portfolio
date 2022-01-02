@@ -22,10 +22,10 @@ export default {
     return {
       hungarian_lang: {
         informations: {
-          'Teljes név': 'Kovács Norbert',
           'Tanulmányok': 'Programtervező Informatika',
           'Telefon': '+36 70 517 09 49',
           'E-mail': 'mfw.kovacs.norbert@gmail.com',
+          'Lakhely': 'Eger'
         }
       },
       english_lang: {

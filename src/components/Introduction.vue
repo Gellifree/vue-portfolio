@@ -1,5 +1,6 @@
 <template lang="html">
   <div class="bg-white shadow-sm border p-3 rounded my-3">
+    <h5 class="text-secondary">Bemutatkozás</h5>
     <p class="text-secondary medium-text"> {{ final_data.first_text_block }}</p>
     <p class="text-secondary medium-text"> {{ final_data.second_text_block }}</p>
     <p class="text-secondary medium-text" v-for="text in final_data.introduction_texts" :key="text.id">

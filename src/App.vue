@@ -3,7 +3,7 @@
   <div class="container mt-3">
     <BlockTitle title_text="Elérhetőségek"/>
     <BasicInfomration/>
-    <BlockTitle title_text="Bemutatkozás"/>
+    <BlockTitle title_text="Rólam"/>
     <IntroductionBlock/>
     <BlockTitle title_text="Ismereteim"/>
   </div>
@@ -15,9 +15,10 @@ import BlockTitle from './components/BlockTitle.vue'
 import IntroductionBlock from './components/IntroductionBlock.vue'
 import Navbar from './components/Navbar.vue'
 
+
 export default {
   provide: {
-    language: 'english'
+    language: 'hungarian'
   },
   name: 'App',
   components: {
