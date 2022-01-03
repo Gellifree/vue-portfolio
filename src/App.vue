@@ -1,12 +1,27 @@
 <template>
-<Navbar/>
-  <div class="container mt-3">
+  <Navbar :param="param" @change="update_state" />
+  <div v-if="page_state == 0" class="mt-3">
     <BlockTitle title_text="Elérhetőségek"/>
     <BasicInformation/>
     <BlockTitle title_text="Rólam"/>
     <IntroductionBlock/>
     <BlockTitle title_text="Ismereteim"/>
     <Stack/>
+  </div>
+  <div v-else-if="page_state == 1" class="container mt-3">
+    <BlockTitle title_text="Önéletrajz"/>
+    <div class="container bg-white shadow-sm rounded mt-3 border p-1">
+      <p class="m-3 text-secondary">Az önéletrajzom PDF formátumban <a href="#">elérhető itt.</a></p>
+    </div>
+  </div>
+  <div v-else-if="page_state == 2" class="container mt-3">
+    <BlockTitle title_text="Projektek"/>
+  </div>
+  <div v-else-if="page_state == 3" class="container mt-3">
+    <BlockTitle title_text="Hobbi"/>
+  </div>
+  <div v-else class="container mt-3">
+    <BlockTitle title_text="ERROR 404"/>
   </div>
 </template>
 
@@ -29,6 +44,16 @@ export default {
     IntroductionBlock,
     Navbar,
     Stack
+  },
+  data() {
+    return {
+      page_state: 0
+    }
+  },
+  methods: {
+    update_state(e) {
+      this.page_state = e
+    }
   }
 }
 </script>

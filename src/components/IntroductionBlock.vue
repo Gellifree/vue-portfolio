@@ -1,12 +1,15 @@
 <template lang="html">
-  <div class="row">
-    <div class="col-md-3">
-    <PersonalCard/>
-    </div>
-    <div class="col">
-    <Introduction/>
+  <div class="container mx-auto p-0">
+    <div class="row">
+      <div class="col-md-3">
+      <PersonalCard/>
+      </div>
+      <div class="col">
+      <Introduction/>
+      </div>
     </div>
   </div>
+
 </template>
 
 <script>
