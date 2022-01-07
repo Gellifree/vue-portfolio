@@ -13,18 +13,11 @@
     <div class="container bg-white shadow-sm rounded mt-3 border p-1">
       <p class="m-3 text-secondary">Az önéletrajzom PDF formátumban <a href="#">elérhető itt.</a></p>
     </div>
-    <div class="container bg-white shadow-sm rounded mt-3 border p-1">
-      <CvTitle title="Tanulmányok" icon_type="fas fa-user-graduate"/>
 
-      <CvBlock title="Programtervező Informatikus (Fejlesztő)" date="(2019 - ) Aktuális tanulmányok" data="Intézmény: Eszterházy Károly Katolikus Egyetem (Eger)"/>
-      <CvBlock title="Programtervező Informatikus Bsc" date="(2015 - 2019) Félbehagyott" data="Intézmény: Eszterházy Károly Katolikus Egyetem (Eger)"/>
-      <CvBlock title="Érettségi bizonyítvány" date="(2009 - 2014)" data="Intézmény: Vak Bottyán János Katolikus Műszaki és Közgazdasági Középiskola és Kollégium (Gyöngyös) "/>
+  <div class="container rounded bg-white p-2 my-3 border shadow-sm">
+      <Cv />
+  </div>
 
-
-
-      <CvTitle title="Szakmai tapasztalat" icon_type="fas fa-briefcase"/>
-      <CvTitle title="Személyes készségek" icon_type="fas fa-user-tie"/>
-    </div>
   </div>
   <div v-else-if="page_state == 2" class="container mt-3">
     <BlockTitle title_text="Projektek"/>
@@ -43,8 +36,7 @@ import BlockTitle from './components/BlockTitle.vue'
 import IntroductionBlock from './components/IntroductionBlock.vue'
 import Navbar from './components/Navbar.vue'
 import Stack from './components/Stack.vue'
-import CvTitle from './components/CvTitle.vue'
-import CvBlock from './components/CvBlock'
+import Cv from './components/Cv.vue'
 
 
 export default {
@@ -58,12 +50,11 @@ export default {
     IntroductionBlock,
     Navbar,
     Stack,
-    CvTitle,
-    CvBlock
+    Cv
   },
   data() {
     return {
-      page_state: 0
+      page_state: 0,
     }
   },
   methods: {

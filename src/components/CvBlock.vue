@@ -3,9 +3,11 @@
     <div class="col- icon  rounded bg-white text-center">
     </div>
     <div class="col title-box border p-3 container rounded">
-      <h6 class="m-0 text-secondary rounded">{{title}}</h6>
-      <p>{{date}}</p>
-      <p>{{data}}</p>
+      <h6 class="m-0 text-info rounded">{{title}}</h6>
+      <p class="text-secondary">{{date}}</p>
+      <span class="text-secondary" v-for="data in datas" :key="data.id">
+        <p class="my-0">{{data}}</p>
+      </span>
     </div>
   </div>
 </template>
@@ -15,7 +17,7 @@ export default {
   props : {
     title: String,
     date: String,
-    data: String
+    datas: Array
   }
 }
 </script>
@@ -24,5 +26,9 @@ export default {
 .icon {
   width: 50px;
   height: 50px;
+}
+
+p {
+  font-size: 13px;
 }
 </style>

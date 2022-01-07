@@ -3,12 +3,10 @@
     <div class="col- icon border rounded bg-info text-center">
       <h6 :class="icon_type" class="text-white my-3 mx-auto"></h6>
     </div>
-    <div class="col title-box border p-3 container">
+    <div class="col title-box border p-3 container rounded">
       <h6 class="m-0 text-secondary rounded">{{title}}</h6>
     </div>
-    <div class="col- icon-right border rounded bg-info text-center">
-      <h2 class="text-white my-2 mx-auto fas fa-chevron-down"></h2>
-    </div>
+
   </div>
 </template>
 
