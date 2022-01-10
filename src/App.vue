@@ -21,6 +21,17 @@
   </div>
   <div v-else-if="page_state == 2" class="container mt-3">
     <BlockTitle title_text="Projektek"/>
+    <div class="container rounded bg-white p-3 my-3 border shadow-sm">
+      <h6 class="text-secondary">Munkáim</h6>
+      <p class="text-secondary">Itt találhatóak meg a kiemelt projektjeim. Megpróbálok mélyebb
+        betekintést nyújtani a folyamatokba, és a projektek nehézségeibe,
+        tapasztalataiba is. A projektek többsége egyetemi projekt, viszont
+        fontos hogy az egyetemi projektjeim céltudatosan kerültek elkészítésére,
+        és sok esetben az egyetemi feladat letudtával, a projektek továbbfejlesztésre kerültek saját felhasználásra.
+
+      </p>
+    </div>
+    <Projects />
   </div>
   <div v-else-if="page_state == 3" class="container mt-3">
     <BlockTitle title_text="Hobbi"/>
@@ -37,11 +48,12 @@ import IntroductionBlock from './components/IntroductionBlock.vue'
 import Navbar from './components/Navbar.vue'
 import Stack from './components/Stack.vue'
 import Cv from './components/Cv.vue'
+import Projects from './components/Projects.vue'
 
 
 export default {
   provide: {
-    language: 'english'
+    language: 'hungarian'
   },
   name: 'App',
   components: {
@@ -50,7 +62,8 @@ export default {
     IntroductionBlock,
     Navbar,
     Stack,
-    Cv
+    Cv,
+    Projects
   },
   data() {
     return {
@@ -73,5 +86,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+p {
+  font-size: 13px;
 }
 </style>
