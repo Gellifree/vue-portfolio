@@ -33,10 +33,11 @@
        <a class="nav-link" href="#" @click.prevent="set_page_state(3)">{{english_lang['hobbies']}}</a>
      </li>
    </ul>
-   <span class="text-white mr-3" style="display:inline-block;" v-if="language['value'] == 'EN'"> {{ hungarian_lang.change_lang_title}} </span>
-   <span class="text-white mr-3" style="display:inline-block;" v-else> {{ english_lang.change_lang_title}} </span>
 
+   <span class="text-white"  v-if="language['value'] == 'EN'"> {{ hungarian_lang.change_lang_title}} </span>
+   <span class="text-white"  v-else> {{ english_lang.change_lang_title}} </span>
    <a @click.prevent="set_language" class="mx-2" style="display: inline-block;">{{language['value']}}</a>
+
  </div>
 
 </nav>

@@ -31,7 +31,12 @@ export default {
             tags: ['Python'],
             description: 'Egy terminál alapú valutaátváltó alkalmazás. A program angol és magyar nyelveken is használható, részletes dokumentáció készült hozzá, és a legfontosabb modulok tesztelve lettek.',
             modal_id: 'first',
-            modal_content: 'modal content text'
+            github_link : 'github.com/Gellifree/projectname',
+            modal_content: {
+              modal_title: 'Összefoglaló',
+              paragraps: ['A program az innovitech állásinterjú részeként került elkészítésre. Ebben a projektben sok újítást is kipróbáltam, így született meg a nyelvesítés, és a részletesebb beállítások. ', 'A program, egy API szolgáltatást használ hogy naprakészen tartsa a valuta árfolyamokat, de azt csak naponta egyszer frissíti, elindításkor ellenőrzi hogy aktuális adatokkal dolgozik-e. Amennyiben valami probléma miatt, nem tudja felfrissíteni az adatokat, azt jelzi a felhasználónak. Több kényelmi funkcióval is rendeldelkezik a program, amik a beállításokon keresztül ki/be kapcsolhatóak. Egy részletes help dokumentumot is készítettem két nyelven. Ezenkívül, a program legfontosabb részeit sikerült lefedni unit tesztekkel is. '],
+              images: ['first_image.png', 'second_image.png']
+            }
           },
           {
             category: 'Konzol alkalmazás',
