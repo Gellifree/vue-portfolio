@@ -37,8 +37,8 @@ export default {
       english_lang: {
         informations: {
           'Full name': 'Norbert Kovács',
-          'Birthday' : '1995. február 24.',
-          'Studies': 'Programming',
+          'Birthday' : '24th February 1995',
+          'Studies': 'Software Information Technology',
           'Phone number': '+36 70 517 09 49',
           'E-mail': 'mfw.kovacs.norbert@gmail.com',
           'Place': 'Eger'

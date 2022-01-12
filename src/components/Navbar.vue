@@ -1,7 +1,8 @@
 <template lang="html">
   <nav class="navbar navbar-expand-md bg-dark navbar-dark px-3">
  <!-- Brand -->
- <a class="navbar-brand" href="#" @click.prevent="set_page_state(0)">Kovács Norbert</a>
+ <a class="navbar-brand" href="#" @click.prevent="set_page_state(0)" v-if="language['value'] == 'EN'">{{hungarian_lang['name_logo']}}</a>
+ <a class="navbar-brand" href="#" @click.prevent="set_page_state(0)" v-else>{{english_lang['name_logo']}}</a>
 
  <!-- Toggler/collapsibe Button -->
  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -10,19 +11,32 @@
 
  <!-- Navbar links -->
  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-   <ul class="navbar-nav">
+   <ul class="navbar-nav" v-if="language['value'] == 'EN'">
      <li class="nav-item">
-       <a class="nav-link" href="#" @click.prevent="set_page_state(1)">Önéletrajz</a>
+       <a class="nav-link" href="#" @click.prevent="set_page_state(1)"> {{hungarian_lang['cv']}}</a>
      </li>
      <li class="nav-item">
-       <a class="nav-link" href="#" @click.prevent="set_page_state(2)">Projektek</a>
+       <a class="nav-link" href="#" @click.prevent="set_page_state(2)">{{hungarian_lang['projects']}}</a>
      </li>
      <li class="nav-item">
-       <a class="nav-link" href="#" @click.prevent="set_page_state(3)">Hobbi</a>
+       <a class="nav-link" href="#" @click.prevent="set_page_state(3)">{{hungarian_lang['hobbies']}}</a>
      </li>
    </ul>
-   <span class="text-white mr-3" style="display:inline-block;">Change language to: </span>
-   <a href="#" @click="set_language" class="mx-2" style="display: inline-block;">{{language['value']}}</a>
+   <ul class="navbar-nav" v-else>
+     <li class="nav-item">
+       <a class="nav-link" href="#" @click.prevent="set_page_state(1)">{{english_lang['cv']}}</a>
+     </li>
+     <li class="nav-item">
+       <a class="nav-link" href="#" @click.prevent="set_page_state(2)">{{english_lang['projects']}}</a>
+     </li>
+     <li class="nav-item">
+       <a class="nav-link" href="#" @click.prevent="set_page_state(3)">{{english_lang['hobbies']}}</a>
+     </li>
+   </ul>
+   <span class="text-white mr-3" style="display:inline-block;" v-if="language['value'] == 'EN'"> {{ hungarian_lang.change_lang_title}} </span>
+   <span class="text-white mr-3" style="display:inline-block;" v-else> {{ english_lang.change_lang_title}} </span>
+
+   <a @click.prevent="set_language" class="mx-2" style="display: inline-block;">{{language['value']}}</a>
  </div>
 
 </nav>
@@ -42,10 +56,18 @@ export default {
   data() {
     return {
       hungarian_lang: {
-
+        name_logo: 'Kovács Norbert',
+        cv: 'Önéletrajz',
+        projects: 'Projektek',
+        hobbies: 'Hobbi',
+        change_lang_title: 'Nyelv megváltoztatása: '
       },
       english_lang: {
-
+        name_logo: 'Norbert Kovács',
+        cv: 'CV',
+        projects: 'Projects',
+        hobbies: 'Hobby',
+        change_lang_title: 'Change language to: '
       }
     }
   }

@@ -7,7 +7,9 @@
       <span class="badge rounded-pill bg-info text-white mx-1" v-for="tag in tags" :key="tag.id">{{tag}}</span>
       <p class="card-text mt-2 text-secondary">{{description}}</p>
 
-      <button class="btn btn-info text-white" data-toggle="modal" :data-target="'#' + modal_id">Részletek</button>
+      <button class="btn btn-info text-white" data-toggle="modal" :data-target="'#' + modal_id" v-if="language['value'] == 'EN'">Részletek</button>
+      <button class="btn btn-info text-white" data-toggle="modal" :data-target="'#' + modal_id" v-else>Details</button>
+
       <a class="btn btn-outline-info float-end " href="#">Github</a>
     </div>
   </div>
@@ -37,6 +39,7 @@ export default {
     modal_id: String,
     modal_content: String
   },
+  inject: ['language']
 }
 </script>
 

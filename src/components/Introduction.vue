@@ -6,9 +6,9 @@
     <p class="text-secondary medium-text" v-for="text in hungarian_lang.introduction_texts" :key="text.id">
       <span v-if="block_open">{{ text }}</span>
     </p>
-    <button type="button" name="button" class="btn btn-info text-white" @click="Toggleblock">
-      <span v-if="block_open">Close</span>
-      <span v-else>Open</span>
+    <button type="button" name="button" class="btn btn-info text-white" @click="block_open = !block_open">
+      <span v-if="block_open">Bezár</span>
+      <span v-else>Lenyit</span>
     </button>
   </div>
   <div class="bg-white shadow-sm border p-3 rounded my-3" v-else>
@@ -18,9 +18,9 @@
     <p class="text-secondary medium-text" v-for="text in english_lang.introduction_texts" :key="text.id">
       <span v-if="block_open">{{ text }}</span>
     </p>
-    <button type="button" name="button" class="btn btn-info text-white" @click="Toggleblock">
-      <span v-if="block_open">Bezár</span>
-      <span v-else>Lenyit</span>
+    <button type="button" name="button" class="btn btn-info text-white" @click="block_open = !block_open">
+      <span v-if="block_open">Close</span>
+      <span v-else>Open</span>
     </button>
   </div>
 </template>
@@ -43,7 +43,7 @@ export default {
         ]
       },
       english_lang: {
-        first_text_block: 'I am Norbert Kovács, a student at the Károly Eszterházy Catholic University. I am studying program design informatics. I am a member of the Roma College and head of the PR and Marketing working group. The most important thing before I graduate from university is to find a job where I can complete professionally and further develop myself.',
+        first_text_block: 'I am Norbert Kovács, a student at the Eszterházy Károly Catholic University. I am studying program design informatics. I am a member of the Roma College and head of the PR and Marketing working group. The most important thing before I graduate from university is to find a job where I can complete professionally and further develop myself.',
         second_text_block: 'The first programming language I studied at university was C#. I didn’t even learn another programming language for years, I tried to deepen the details of the object-oriented way of thinking. I’ve been sympathetic to Linux since I was a kid, and it just got stronger at university. This brought with it a love of the Python language as it is extremely convenient and fast to develop with Python. I have completely abandoned the use of Windows systems, which involves a lot of compromises, but overall, I could not imagine not using some Ubuntu or Arch based system in everyday life. Over time, I started building static web pages and then learned the basics of PHP. The Codeigniter framework made php much more valuable to me. Creating different websites brought with it the use of bootstrap. Breaking away from these, I became acquainted with the Godot game engine in my spare time. Godot is easy to use, logically structured and very easy to create applications and games.',
         introduction_texts: [
           'Leaving Microsoft office suite and using alternative programs can sometimes cause a lot of difficulty. Of course, there were plenty of alternatives, but none were perfect. Of course, this can be avoided with online tools, but this is not always a solution either. Overall, when I have the opportunity, I avoid all word processors and create documents in TeXStudio, quickly, as a consistent quality PDF document. Instead of Adobe software packages, I use their free, open source alternatives.',
@@ -52,8 +52,6 @@ export default {
           'I have minimal c / c ++ knowledge, but I don t have any major projects to rely on. The Java language is basically close to me because of my many years of C # experience, but I didn’t particularly need that language.',
           'I spend my days trying to improve myself and deepen my current knowledge. In my spare time, I want to use the Codeigniter framework to build web applications that solve real problems, and the Godot engine to build games. I am aware that I still have a lot of knowledge and technology to master and that my current knowledge needs to be raised to a professional level.'
         ]
-      },
-      final_data: {
       },
       block_open: false
     }
