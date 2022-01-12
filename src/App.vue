@@ -1,5 +1,5 @@
 <template>
-  <Navbar :param="param" @change="update_state" />
+  <Navbar :param="param" @change="update_state" @language_change="change_root_language"/>
   <div v-if="page_state == 0" class="mt-3">
     <BlockTitle title_text="Elérhetőségek"/>
     <BasicInformation/>
@@ -50,10 +50,11 @@ import Stack from './components/Stack.vue'
 import Cv from './components/Cv.vue'
 import Projects from './components/Projects.vue'
 
-
 export default {
-  provide: {
-    language: 'hungarian'
+  provide() {
+    return {
+      language: this.language
+    };
   },
   name: 'App',
   components: {
@@ -68,11 +69,27 @@ export default {
   data() {
     return {
       page_state: 0,
+      language: {
+        value: 'HU'
+      }
     }
   },
   methods: {
     update_state(e) {
       this.page_state = e
+    },
+    change_root_language() {
+      this.set_language()
+
+    },
+    set_language() {
+      if(this.language['value'] == "HU") {
+        this.language['value'] = "EN"
+      } else {
+        this.language['value'] = 'HU'
+      }
+      console.log('the language is set to: ', this.language['value'])
+
     }
   }
 }

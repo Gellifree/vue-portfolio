@@ -10,7 +10,19 @@ export default {
   props: {
     type : String,
     data : String
-  }
+  },
+  methods: {
+    set_language() {
+      console.log('set_language called from Block')
+      if(this.language['value'] == "hungarian") {
+        console.log('The language is set to hungarian')
+        this.final_data = this.hungarian_lang
+      } else {
+        console.log('The language is set to english')
+        this.final_data = this.english_lang
+      }
+    }
+  },
 }
 </script>
 

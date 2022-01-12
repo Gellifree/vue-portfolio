@@ -1,9 +1,21 @@
 <template lang="html">
-  <div class="bg-white shadow-sm border p-3 rounded my-3">
+  <div class="bg-white shadow-sm border p-3 rounded my-3" v-if="language['value'] == 'EN'">
     <h5 class="text-secondary">Bemutatkozás</h5>
-    <p class="text-secondary medium-text"> {{ final_data.first_text_block }}</p>
-    <p class="text-secondary medium-text"> {{ final_data.second_text_block }}</p>
-    <p class="text-secondary medium-text" v-for="text in final_data.introduction_texts" :key="text.id">
+    <p class="text-secondary medium-text"> {{ hungarian_lang.first_text_block }}</p>
+    <p class="text-secondary medium-text"> {{ hungarian_lang.second_text_block }}</p>
+    <p class="text-secondary medium-text" v-for="text in hungarian_lang.introduction_texts" :key="text.id">
+      <span v-if="block_open">{{ text }}</span>
+    </p>
+    <button type="button" name="button" class="btn btn-info text-white" @click="Toggleblock">
+      <span v-if="block_open">Close</span>
+      <span v-else>Open</span>
+    </button>
+  </div>
+  <div class="bg-white shadow-sm border p-3 rounded my-3" v-else>
+    <h5 class="text-secondary">Introduction</h5>
+    <p class="text-secondary medium-text"> {{ english_lang.first_text_block }}</p>
+    <p class="text-secondary medium-text"> {{ english_lang.second_text_block }}</p>
+    <p class="text-secondary medium-text" v-for="text in english_lang.introduction_texts" :key="text.id">
       <span v-if="block_open">{{ text }}</span>
     </p>
     <button type="button" name="button" class="btn btn-info text-white" @click="Toggleblock">
@@ -45,21 +57,6 @@ export default {
       },
       block_open: false
     }
-  },
-  methods: {
-    set_language() {
-      if(this.language == "hungarian") {
-        this.final_data = this.hungarian_lang
-      } else if(this.language == "english") {
-        this.final_data = this.english_lang
-      }
-    },
-    Toggleblock() {
-      this.block_open = !this.block_open
-    }
-  },
-  beforeMount() {
-    this.set_language()
   }
 }
 </script>

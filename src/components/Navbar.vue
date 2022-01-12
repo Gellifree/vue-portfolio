@@ -21,16 +21,32 @@
        <a class="nav-link" href="#" @click.prevent="set_page_state(3)">Hobbi</a>
      </li>
    </ul>
+   <span class="text-white mr-3" style="display:inline-block;">Change language to: </span>
+   <a href="#" @click="set_language" class="mx-2" style="display: inline-block;">{{language['value']}}</a>
  </div>
+
 </nav>
 </template>
 
 <script>
 export default {
-  inject: [],
+  inject: ['language'],
   methods: {
     set_page_state(param) {
       this.$emit('change', param)
+    },
+    set_language() {
+      this.$emit('language_change')
+    }
+  },
+  data() {
+    return {
+      hungarian_lang: {
+
+      },
+      english_lang: {
+
+      }
     }
   }
 }

@@ -1,15 +1,13 @@
-<template>
+<template >
   <div class="container my-3">
-   <!--  <ul class="list-group">
-      <li v-for="(value, key) in informations" :key="key" class="list-group-item">
-       <b class="text-info">{{ key }}</b> : {{ value }}
-      </li>
-    </ul>
--->
-    <div class="row bg-white border py-3 shadow-sm">
-      <div class="col" v-for="(value, key) in final_data.informations" :key="key">
-        <!-- <h6 class="text-info medium-text">{{ key }}</h6> <span class="small-text text-secondary">{{ value }}</span> -->
-          <BasicInformationBlock :type="key" :data="value" />
+    <div class="row bg-white border py-3 shadow-sm" v-if="language['value'] == 'EN'">
+      <div class="col" v-for="(value, key) in hungarian_lang.informations" :key="key">
+          <BasicInformationBlock :type="key" :data="value"/>
+      </div>
+    </div>
+    <div class="row bg-white border py-3 shadow-sm" v-else>
+      <div class="col" v-for="(value, key) in english_lang.informations" :key="key">
+          <BasicInformationBlock :type="key" :data="value"/>
       </div>
     </div>
   </div>
@@ -22,7 +20,7 @@ export default {
   name: 'Basic Information Component',
   inject: ['language'],
   components: {
-    BasicInformationBlock
+    BasicInformationBlock,
   },
   data() {
     return {
@@ -45,23 +43,9 @@ export default {
           'E-mail': 'mfw.kovacs.norbert@gmail.com',
           'Place': 'Eger'
         }
-      },
-      final_data: {
       }
     }
   },
-  methods: {
-    set_language() {
-      if(this.language == "hungarian") {
-        this.final_data = this.hungarian_lang
-      } else if(this.language == "english") {
-        this.final_data = this.english_lang
-      }
-    }
-  },
-  beforeMount() {
-    this.set_language()
-  }
 }
 </script>
 
