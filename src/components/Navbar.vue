@@ -5,7 +5,7 @@
  <a class="navbar-brand" href="#" @click.prevent="set_page_state(0)" v-else>{{english_lang['name_logo']}}</a>
 
  <!-- Toggler/collapsibe Button -->
- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+ <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
    <span class="navbar-toggler-icon"></span>
  </button>
 
@@ -34,10 +34,9 @@
      </li>
    </ul>
 
-   <span class="text-white"  v-if="language['value'] == 'EN'"> {{ hungarian_lang.change_lang_title}} </span>
-   <span class="text-white"  v-else> {{ english_lang.change_lang_title}} </span>
-   <a @click.prevent="set_language" class="mx-2" style="display: inline-block;">{{language['value']}}</a>
-
+   <!--<span class="text-white ms-auto mb-2 mb-lg-0"  v-if="language['value'] == 'EN'"> {{ hungarian_lang.change_lang_title}} </span>
+   <span class="text-white ms-auto mb-2 mb-lg-0"  v-else> {{ english_lang.change_lang_title}} </span> -->
+   <a @click.prevent="set_language" class="mx-2 btn btn-info text-white ms-auto mb-2 mb-lg-0" style="display: inline-block;">{{language['value']}}</a>
  </div>
 
 </nav>

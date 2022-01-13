@@ -1,10 +1,10 @@
 <template lang="html">
   <div class="card m-3 shadow-sm border" style="width: 375px;">
     <div class="card-header bg-dark text-white"> {{category}} </div>
-    <img class="card-img-top" src="../assets/ProjectImages/binary.png"/>
+    <img class="card-img-top" :src="require('../assets/' + image_path)"/>
     <div class="card-body">
       <h6 class="card-title text-secondary">{{title}}</h6>
-      <span class="badge rounded-pill bg-info text-white mx-1" v-for="tag in tags" :key="tag.id">{{tag}}</span>
+      <span class="badge rounded-pill bg-info text-white mx-1 p-2" v-for="tag in tags" :key="tag.id">{{tag}}</span>
       <p class="card-text mt-2 text-secondary">{{description}}</p>
 
       <button class="btn btn-info text-white" data-bs-toggle="modal" :data-bs-target="'#' + modal_id" v-if="language['value'] == 'EN'">Részletek</button>
@@ -31,11 +31,8 @@
               <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="../assets/Detailes/currency_screenshot_exchange.png" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="../assets/Detailes/currency_screenshot_list.png" class="d-block w-100" alt="...">
+              <div class="carousel-item" :class="{active: index == 0}" v-for="(picture, index) in modal_content.images" :key="picture.id">
+                <img :src="require('../assets/' + picture)" class="d-block w-100" alt="...">
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
@@ -48,8 +45,6 @@
             </button>
           </div>
 
-
-          <button type="button" name="button" class="btn btn-danger m-2 float-end">Bezár</button>
           <button type="button" name="button" class="btn btn-outline-info m-2 float-end">Github</button>
 
         </div>
@@ -69,7 +64,7 @@ export default {
     modal_id: String,
     modal_content: Object
   },
-  inject: ['language']
+  inject: ['language'],
 }
 </script>
 
